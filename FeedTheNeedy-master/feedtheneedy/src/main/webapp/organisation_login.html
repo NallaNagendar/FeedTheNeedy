@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Login</title>
+    <link rel="stylesheet" href="organisation_login.css">
+    <style>
+        /* Custom error message style to look like a popup */
+        .error-message {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="info">
+        <h2>Organization Login</h2>
+        <p class="info-text">
+            Every donation you manage helps us bridge the gap between food surplus and scarcity. By ensuring food gets to those in need, 
+            you contribute to reducing hunger, preventing food waste, and making a tangible difference in your community. Log in below 
+            to continue supporting this vital cause.
+        </p>
+    </div>
+    <div class="login-container">
+        <form action="OrganizationLoginServlet" method="POST">
+            <div class="form-group">
+                <label for="org-id">Organization ID</label>
+                <input type="text" id="org-id" name="organization_id" placeholder="Enter Organization ID" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div class="form-footer">
+            <p>New organization? <a href="organisation_register.html">Register here</a></p>
+        </div>
+        <!-- Added Anchor Tag for Home Page -->
+        <div class="form-footer">
+            <a href="index.html">Go to Home Page</a>
+        </div>
+    </div>
+    
+    <div id="errorMessage" class="error-message">
+        Please enter valid details.
+    </div>
+
+    <!-- Script to check for errors and show the inline error message -->
+    <script>
+        // Function to show the error message for 3 seconds
+        function showErrorMessage(message) {
+            const errorMessageDiv = document.getElementById('errorMessage');
+            errorMessageDiv.textContent = message;
+            errorMessageDiv.style.display = 'block';
+
+            // Hide the error message after 3 seconds
+            setTimeout(() => {
+                errorMessageDiv.style.display = 'none';
+            }, 3000); // Increased to 3 seconds for better visibility
+        }
+
+        // Check if there's an error parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            const errorType = urlParams.get('error');
+            if (errorType === 'true') {
+                showErrorMessage('Please enter valid details.');
+            } else if (errorType === 'sql') {
+                showErrorMessage('An error occurred while connecting to the database. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

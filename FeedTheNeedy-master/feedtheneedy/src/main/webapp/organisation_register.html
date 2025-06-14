@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organization Registration</title>
+<link rel="stylesheet" href="organisation_register.css">
+<style>
+.error-message {
+	display: none;
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #f8d7da;
+	color: #721c24;
+	padding: 15px;
+	border: 1px solid #f5c6cb;
+	border-radius: 4px;
+	z-index: 1000;
+}
+</style>
+
+</head>
+<body>
+	<div class="registration-container">
+		<h2>Organization Registration</h2>
+		<p class="info-text">Welcome to the food donation platform. By
+			registering your organization, you will help reduce food waste and
+			support people in need. Please provide accurate information to ensure
+			smooth collaboration.</p>
+		<form action="OrganizationRegistrationServlet" method="POST">
+			<!-- Form fields remain the same -->
+			<div class="form-row">
+				<div class="form-group">
+					<label for="org-name">Organization Name</label> <input type="text"
+						id="org-name" name="organization_name"
+						placeholder="Enter Organization Name" required>
+				</div>
+				<div class="form-group">
+					<label for="owner-name">Owner Name</label> <input type="text"
+						id="owner-name" name="owner_name" placeholder="Enter Owner Name"
+						required>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group">
+					<label for="org-id">Organization ID</label> <input type="text"
+						id="org-id" name="organization_id"
+						placeholder="Enter Organization ID" required>
+				</div>
+				<div class="form-group">
+					<label for="state">State</label> <input type="text" id="state"
+						name="state" placeholder="Enter State" required>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group">
+					<label for="district">District</label> <input type="text"
+						id="district" name="district" placeholder="Enter District"
+						required>
+				</div>
+				<div class="form-group">
+					<label for="city">City</label> <input type="text" id="city"
+						name="city" placeholder="Enter City" required>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group">
+					<label for="street">Street</label> <input type="text" id="street"
+						name="street" placeholder="Enter Street Name" required>
+				</div>
+				<div class="form-group">
+					<label for="pin-code">Pin Code</label> <input type="text"
+						id="pin-code" name="pin_code" placeholder="Enter Pin Code"
+						required>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group">
+					<label for="phone">Phone Number</label> <input type="text"
+						id="phone" name="phone_number" placeholder="Enter Phone Number"
+						required>
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label> <input type="email" id="email"
+						name="email" placeholder="Enter Email" required>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group">
+					<label for="password">Password</label> <input type="password"
+						id="password" name="password" placeholder="Enter Password"
+						required>
+				</div>
+				<div class="form-group">
+					<label for="confirm-password">Confirm Password</label> <input
+						type="password" id="confirm-password" name="confirm_password"
+						placeholder="Re-enter Password" required>
+				</div>
+			</div>
+
+			<button type="submit" class="submit-btn">Register</button>
+
+			<!-- Added login option -->
+			<p class="login-option">
+				Already have an account? <a href="organisation_login.html">Login
+					here</a>.
+			</p>
+		</form>
+	</div>
+
+
+	<!-- Error message div -->
+	<div id="errorMessage" class="error-message"></div>
+
+	<!-- Script to show error message for 3 seconds -->
+	<script>
+        function showErrorMessage(message) {
+            const errorMessageDiv = document.getElementById('errorMessage');
+            errorMessageDiv.textContent = message;
+            errorMessageDiv.style.display = 'block';
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                errorMessageDiv.style.display = 'none';
+            }, 1000);
+        }
+
+        // Check if there's an error parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            const errorType = urlParams.get('error');
+            if (errorType === 'password_mismatch') {
+                showErrorMessage('Passwords do not match!');
+            } else if (errorType === 'registration_failed') {
+                showErrorMessage('Registration failed. Please try again.');
+            } else if (errorType === 'sql_error') {
+                showErrorMessage('An error occurred during registration. Please try again later.');
+            }
+        }
+    </script>
+
+</body>
+</html>

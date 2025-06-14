@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.welcome-container {
+    background-image: url('home_page.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100vh;
+    color: #f4f4f4; /* Lightened text color */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Increased overlay opacity */
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.welcome-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.welcome-content h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #f4f4f4; /* Lightened heading color */
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e0e0e0; /* Lightened paragraph text */
+}
+
+.buttons {
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #fdd835;
+    color: black;
+    padding: 15px 30px;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fbc02d;
+}
+
+.footer-text {
+    font-size: 1rem;
+    margin-top: 20px;
+    color: #cccccc; /* Slightly lighter footer text */
+    font-style: italic;
+}

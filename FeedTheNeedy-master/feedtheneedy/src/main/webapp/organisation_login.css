@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://img.freepik.com/premium-photo/poor-starving-hungry-boy-looking-camera_1009902-61.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    backdrop-filter: blur(10px); /* Adds a blur effect to the background */
+}
+
+.info {
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 100%;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.95); /* The form has a white background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #fdfcfc;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+.info-text {
+    font-size: 11px;
+    color: #fbf9f9e1;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #008CBA;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #007AA5;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: #008CBA;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px; /* Add spacing between the two footer links */
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
